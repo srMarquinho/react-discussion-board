@@ -1,8 +1,6 @@
 language: node_js
 node_js:
-- 6.2.2
-before_install:
-- sudo apt-get update -qq
+- 6.4.0
 install:
 - npm install
 script:
