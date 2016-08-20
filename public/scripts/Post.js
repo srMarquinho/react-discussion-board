@@ -1,19 +1,19 @@
-var React = require('react');
-var Remarkable = require('remarkable');
+import React from 'react';
+import Remarkable from 'remarkable';
 
-var Post = React.createClass({
+const Post = React.createClass({
 
-  childrenColector: function() {
-    return this.props.children
+  childrenColector: function () {
+    return this.props.children;
   },
 
-  rawMarkup: function() {
+  rawMarkup: function () {
     var md = new Remarkable();
     var rawMarkup = md.render(this.childrenColector().toString());
     return { __html: rawMarkup };
   },
 
-  render: function() {
+  render: function () {
     return (
       <div className="post">
         <span className="postAuthor">
@@ -23,7 +23,7 @@ var Post = React.createClass({
         <br></br>
       </div>
     );
-  }
+  },
 });
 
-module.exports = Post
+module.exports = Post;

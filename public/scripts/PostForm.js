@@ -1,31 +1,32 @@
-var React = require('react');
+import React from 'react';
 
-var PostForm = React.createClass({
+const PostForm = React.createClass({
 
-  getInitialState: function() {
-    return {author: '', text: ''};
+  getInitialState: function () {
+    return { author: '', text: '' };
   },
 
-  handleAuthorChange: function(e) {
-    this.setState({author: e.target.value});
+  handleAuthorChange: function (e) {
+    this.setState({ author: e.target.value });
   },
 
-  handleTextChange: function(e) {
-    this.setState({text: e.target.value});
+  handleTextChange: function (e) {
+    this.setState({ text: e.target.value });
   },
 
-  handleSubmit: function(e) {
+  handleSubmit: function (e) {
     e.preventDefault();
     var author = this.state.author.trim();
     var text = this.state.text.trim();
     if (!text || !author) {
       return;
     }
-    this.props.onPostSubmit({author: author, text: text});
-    this.setState({author: '', text: ''});
+
+    this.props.onPostSubmit({ author: author, text: text });
+    this.setState({ author: '', text: '' });
   },
 
-  render: function() {
+  render: function () {
     return (
       <form className="postForm" onSubmit={this.handleSubmit}>
         <input
@@ -53,7 +54,7 @@ var PostForm = React.createClass({
         />
       </form>
     );
-  }
+  },
 });
 
-module.exports = PostForm
+module.exports = PostForm;

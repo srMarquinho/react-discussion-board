@@ -1,51 +1,51 @@
-var React = require('react');
-var $ = require('jquery');
-var PostList = require('./PostList.js');
-var PostForm = require('./PostForm');
+import React from 'react';
+import $ from 'jquery';
+import PostList from './PostList.js';
+import PostForm from './PostForm';
 
-var PostBox = React.createClass({
+const PostBox = React.createClass({
 
-  getUrl: function() {
+  getUrl: function () {
     return this.props.url;
   },
 
-  loadPostsFromServer: function() {
+  loadPostsFromServer: function () {
     $.ajax({
       url: this.getUrl(),
       dataType: 'json',
       cache: false,
-      success: function(data) {
-        this.setState({data: data});
-      }.bind(this)
+      success: function (data) {
+        this.setState({ data: data });
+      }.bind(this),
     });
   },
 
-  handlePostSubmit: function(post) {
+  handlePostSubmit: function (post) {
     var posts = this.state.data;
     post.id = Date.now();
     var newPosts = posts.concat([post]);
-    this.setState({data: newPosts});
+    this.setState({ data: newPosts });
     $.ajax({
       url: this.getUrl(),
       dataType: 'json',
       type: 'POST',
       data: post,
-      success: function(data) {
-        this.setState({data: data});
-      }.bind(this)
+      success: function (data) {
+        this.setState({ data: data });
+      }.bind(this),
     });
   },
 
-  getInitialState: function() {
-    return {data: []};
+  getInitialState: function () {
+    return { data: [] };
   },
 
-  componentDidMount: function() {
+  componentDidMount: function () {
     this.loadPostsFromServer();
     setInterval(this.loadPostsFromServer, this.props.pollInterval);
   },
 
-  render: function() {
+  render: function () {
     return (
       <div className="postBox">
         <h1>Say hi with React!</h1>
@@ -53,7 +53,7 @@ var PostBox = React.createClass({
         <PostForm onPostSubmit={this.handlePostSubmit} />
       </div>
     );
-  }
+  },
 });
 
-module.exports = PostBox
+module.exports = PostBox;

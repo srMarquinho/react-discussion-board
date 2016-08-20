@@ -1,14 +1,14 @@
-var React = require('react');
-var Post = require('./Post.js');
+import React from 'react';
+import Post from './Post';
 
 var PostList = React.createClass({
 
-  dataColector: function() {
+  dataColector: function () {
     return this.props.data;
   },
 
-  render: function() {
-    var postNodes = this.dataColector().map(function(post) {
+  render: function () {
+    var postNodes = this.dataColector().map(function (post) {
       return (
         <Post author={post.author} key={post.id}>
           {post.text}
@@ -21,7 +21,7 @@ var PostList = React.createClass({
         {postNodes}
       </div>
     );
-  }
+  },
 });
 
-module.exports = PostList
+module.exports = PostList;
