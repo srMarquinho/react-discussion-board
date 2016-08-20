@@ -40978,10 +40978,17 @@ module.exports = function text(state, silent) {
 },{}],237:[function(require,module,exports){
 'use strict';
 
-var React = require('react');
-var Remarkable = require('remarkable');
+var _react = require('react');
 
-var Post = React.createClass({
+var _react2 = _interopRequireDefault(_react);
+
+var _remarkable = require('remarkable');
+
+var _remarkable2 = _interopRequireDefault(_remarkable);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Post = _react2.default.createClass({
   displayName: 'Post',
 
 
@@ -40990,27 +40997,27 @@ var Post = React.createClass({
   },
 
   rawMarkup: function rawMarkup() {
-    var md = new Remarkable();
+    var md = new _remarkable2.default();
     var rawMarkup = md.render(this.childrenColector().toString());
     return { __html: rawMarkup };
   },
 
   render: function render() {
-    return React.createElement(
+    return _react2.default.createElement(
       'div',
       { className: 'post' },
-      React.createElement(
+      _react2.default.createElement(
         'span',
         { className: 'postAuthor' },
-        React.createElement(
+        _react2.default.createElement(
           'strong',
           null,
           this.props.author,
           ' said:'
         )
       ),
-      React.createElement('span', { id: 'post-text', dangerouslySetInnerHTML: this.rawMarkup() }),
-      React.createElement('br', null)
+      _react2.default.createElement('span', { id: 'post-text', dangerouslySetInnerHTML: this.rawMarkup() }),
+      _react2.default.createElement('br', null)
     );
   }
 });
@@ -41020,12 +41027,25 @@ module.exports = Post;
 },{"react":176,"remarkable":177}],238:[function(require,module,exports){
 'use strict';
 
-var React = require('react');
-var $ = require('jquery');
-var PostList = require('./PostList.js');
-var PostForm = require('./PostForm');
+var _react = require('react');
 
-var PostBox = React.createClass({
+var _react2 = _interopRequireDefault(_react);
+
+var _jquery = require('jquery');
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+var _PostList = require('./PostList.js');
+
+var _PostList2 = _interopRequireDefault(_PostList);
+
+var _PostForm = require('./PostForm');
+
+var _PostForm2 = _interopRequireDefault(_PostForm);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var PostBox = _react2.default.createClass({
   displayName: 'PostBox',
 
 
@@ -41034,7 +41054,7 @@ var PostBox = React.createClass({
   },
 
   loadPostsFromServer: function loadPostsFromServer() {
-    $.ajax({
+    _jquery2.default.ajax({
       url: this.getUrl(),
       dataType: 'json',
       cache: false,
@@ -41049,7 +41069,7 @@ var PostBox = React.createClass({
     post.id = Date.now();
     var newPosts = posts.concat([post]);
     this.setState({ data: newPosts });
-    $.ajax({
+    _jquery2.default.ajax({
       url: this.getUrl(),
       dataType: 'json',
       type: 'POST',
@@ -41070,16 +41090,16 @@ var PostBox = React.createClass({
   },
 
   render: function render() {
-    return React.createElement(
+    return _react2.default.createElement(
       'div',
       { className: 'postBox' },
-      React.createElement(
+      _react2.default.createElement(
         'h1',
         null,
         'Say hi with React!'
       ),
-      React.createElement(PostList, { data: this.state.data }),
-      React.createElement(PostForm, { onPostSubmit: this.handlePostSubmit })
+      _react2.default.createElement(_PostList2.default, { data: this.state.data }),
+      _react2.default.createElement(_PostForm2.default, { onPostSubmit: this.handlePostSubmit })
     );
   }
 });
@@ -41089,9 +41109,13 @@ module.exports = PostBox;
 },{"./PostForm":239,"./PostList.js":240,"jquery":28,"react":176}],239:[function(require,module,exports){
 'use strict';
 
-var React = require('react');
+var _react = require('react');
 
-var PostForm = React.createClass({
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var PostForm = _react2.default.createClass({
   displayName: 'PostForm',
 
 
@@ -41114,23 +41138,24 @@ var PostForm = React.createClass({
     if (!text || !author) {
       return;
     }
+
     this.props.onPostSubmit({ author: author, text: text });
     this.setState({ author: '', text: '' });
   },
 
   render: function render() {
-    return React.createElement(
+    return _react2.default.createElement(
       'form',
       { className: 'postForm', onSubmit: this.handleSubmit },
-      React.createElement('input', {
+      _react2.default.createElement('input', {
         id: 'input-name',
         type: 'text',
         placeholder: 'Name (or aka)',
         value: this.state.author,
         onChange: this.handleAuthorChange
       }),
-      React.createElement('br', null),
-      React.createElement('textarea', {
+      _react2.default.createElement('br', null),
+      _react2.default.createElement('textarea', {
         id: 'textarea-comment',
         rows: '4',
         cols: '50',
@@ -41139,8 +41164,8 @@ var PostForm = React.createClass({
         value: this.state.text,
         onChange: this.handleTextChange
       }),
-      React.createElement('br', null),
-      React.createElement('input', {
+      _react2.default.createElement('br', null),
+      _react2.default.createElement('input', {
         id: 'button',
         type: 'submit',
         value: 'Post'
@@ -41154,10 +41179,17 @@ module.exports = PostForm;
 },{"react":176}],240:[function(require,module,exports){
 'use strict';
 
-var React = require('react');
-var Post = require('./Post.js');
+var _react = require('react');
 
-var PostList = React.createClass({
+var _react2 = _interopRequireDefault(_react);
+
+var _Post = require('./Post');
+
+var _Post2 = _interopRequireDefault(_Post);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var PostList = _react2.default.createClass({
   displayName: 'PostList',
 
 
@@ -41167,14 +41199,14 @@ var PostList = React.createClass({
 
   render: function render() {
     var postNodes = this.dataColector().map(function (post) {
-      return React.createElement(
-        Post,
+      return _react2.default.createElement(
+        _Post2.default,
         { author: post.author, key: post.id },
         post.text
       );
     });
 
-    return React.createElement(
+    return _react2.default.createElement(
       'div',
       { className: 'postList' },
       postNodes
@@ -41184,16 +41216,35 @@ var PostList = React.createClass({
 
 module.exports = PostList;
 
-},{"./Post.js":237,"react":176}],241:[function(require,module,exports){
+},{"./Post":237,"react":176}],241:[function(require,module,exports){
 'use strict';
 
-var React = require('react');
-var ReactDOM = require('react-dom');
-var Post = require('./Post.js');
-var PostBox = require('./PostBox.js');
-var PostList = require('./PostList.js');
-var PostForm = require('./PostForm');
+var _react = require('react');
 
-ReactDOM.render(React.createElement(PostBox, { url: 'http://localhost:3000/api/posts', pollInterval: 2000 }), document.getElementById('app'));
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = require('react-dom');
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+var _Post = require('./Post.js');
+
+var _Post2 = _interopRequireDefault(_Post);
+
+var _PostBox = require('./PostBox.js');
+
+var _PostBox2 = _interopRequireDefault(_PostBox);
+
+var _PostList = require('./PostList.js');
+
+var _PostList2 = _interopRequireDefault(_PostList);
+
+var _PostForm = require('./PostForm');
+
+var _PostForm2 = _interopRequireDefault(_PostForm);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+_reactDom2.default.render(_react2.default.createElement(_PostBox2.default, { url: 'http://localhost:3000/api/posts', pollInterval: 2000 }), document.getElementById('app'));
 
 },{"./Post.js":237,"./PostBox.js":238,"./PostForm":239,"./PostList.js":240,"react":176,"react-dom":31}]},{},[241]);
