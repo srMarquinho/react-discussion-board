@@ -1,8 +1,7 @@
-import domSetup from '../helper/domSetup.js';
 import React from 'react';
 import { expect } from 'chai';
-import { mount, shallow } from 'enzyme';
-import { spyOnComponentMethod, stubComponentMethod } from 'sinon-spy-react';
+import { shallow } from 'enzyme';
+import { stubComponentMethod } from 'sinon-spy-react';
 import PostList from '../../public/scripts/PostList.js';
 
 describe('<PostList />', () => {

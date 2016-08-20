@@ -1,8 +1,7 @@
 import domSetup from '../helper/domSetup.js';
 import React from 'react';
 import { expect } from 'chai';
-import { mount, shallow } from 'enzyme';
-
+import { shallow } from 'enzyme';
 import PostForm from '../../public/scripts/PostForm.js';
 
 describe('<PostForm />', () => {

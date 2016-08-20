@@ -1,3 +1,4 @@
+import domSetup from './helper/domSetup.js';
 import unit1 from './unit/PostSpec';
 import unit2 from './unit/PostBoxSpec';
 import unit3 from './unit/PostFormSpec';

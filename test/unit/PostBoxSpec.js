@@ -1,12 +1,11 @@
-import domSetup from '../helper/domSetup.js';
 import React from 'react';
 import { expect } from 'chai';
 import { mount, shallow } from 'enzyme';
-import { spyOnComponentMethod, stubComponentMethod } from 'sinon-spy-react';
+import { spyOnComponentMethod } from 'sinon-spy-react';
 import PostBox from '../../public/scripts/PostBox.js';
 
 describe('<PostBox />', () => {
-  const wrapper = shallow(<PostBox />);
+  const wrapper = shallow(< PostBox / >);
 
   it('renders a div tag', () => {
     const actual = wrapper.find('div');
@@ -34,7 +33,7 @@ describe('<PostBox />', () => {
 
   it('calls componentDidMount', () => {
     spyOnComponentMethod(PostBox, 'componentDidMount');
-    const wrapperMount = mount(<PostBox />);
+    const wrapperMount = mount(< PostBox / >);
     expect(PostBox.prototype.componentDidMount.calledOnce).to.equal(true);
   });
 });
