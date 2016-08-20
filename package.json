@@ -18,6 +18,8 @@
     "chai": "^3.5.0",
     "enzyme": "^2.4.1",
     "http-server": "^0.9.0",
+    "isparta": "^4.0.0",
+    "istanbul": "^0.4.4",
     "jquery": "^3.1.0",
     "jsdom": "^3.1.2",
     "mocha": "^3.0.2",
@@ -31,7 +33,7 @@
     "zombie": "^4.2.1"
   },
   "scripts": {
-    "test": "mocha test/test.js --compilers js:babel-register --timeout 19999",
+    "test": "mocha test/test.js --compilers js:babel-register --timeout 15000",
     "start": "node server.js",
     "browserify": "browserify -t [ babelify --presets [ react ] ] public/scripts/app.js -o public/scripts/bundle.js"
   },

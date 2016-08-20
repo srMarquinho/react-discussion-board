@@ -9,22 +9,22 @@ describe('<PostForm />', () => {
   const wrapper = shallow(<PostForm />);
 
   it('renders a form', () => {
-    const expected = 1
+    const expected = 1;
     expect(wrapper.find('form')).to.have.length(expected);
   });
 
   it('renders a input for the name', () => {
-    const expected = 1
+    const expected = 1;
     expect(wrapper.find('input #input-name')).to.have.length(expected);
   });
 
   it('renders a textarea for the comment', () => {
-    const expected = 1
+    const expected = 1;
     expect(wrapper.find('textarea #textarea-comment')).to.have.length(expected);
   });
 
   it('renders a submit button', () => {
-    const expected = 1
+    const expected = 1;
     expect(wrapper.find('input #button')).to.have.length(expected);
   });
 
