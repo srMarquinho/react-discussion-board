@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.org/srMarquinho/react-discussion-board.svg?branch=master)](https://travis-ci.org/srMarquinho/react-discussion-board)
-
 # React Discussion Board
 
 This is a React exercise.
