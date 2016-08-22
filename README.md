@@ -31,6 +31,11 @@ So people can know what I think
 I want to post my opinion to the board
 ```
 
+#### How:
+I have paid attention to details and code cleanliness.
+
+During this exercise, I spent some time learning, reading and going through tutorials regarding React basics. Although my greatest challenge was TDD with React. Debugging had a big hole during this prosses.
+
 ![alt text](./doc/screen.png)
 ![alt text](./doc/test.png)
 
